@@ -36,7 +36,7 @@ function ndviCallback(data, e) {
   } else {
     greenIndex = "High";
   }
-  console.log('done green')
+  console.log('done green');
 calculate(e);
 }
 function leafAreaCallback(data, e){
@@ -50,7 +50,7 @@ function leafAreaCallback(data, e){
   } else {
     leafAreaIndex = "High";
   }
-  console.log('done leaf')
+  console.log('done leaf');
   calculate(e);
 }
 function airPollutionCallback(data, e){
@@ -63,11 +63,11 @@ function airPollutionCallback(data, e){
   } else {
     airPollutionIndex = "High";
   }
-  console.log('done air')
+  console.log('done air');
   calculate(e);
 }
 function calculate(e){
-  setProgress(25 *callBacks)
+  setProgress(25 *callBacks);
   if(callBacks === 3) {
     L.marker([e.latlng.lat, e.latlng.lng]).addTo(map)
     .bindPopup("<b>Green Index</b>: "+greenIndex+"</br>" +
@@ -75,7 +75,7 @@ function calculate(e){
         "<b>Flood Risk</b>: Low</br>" +
         "<b>Leaf Area</b>: "+leafAreaIndex+"</br>" +
         "<b>Air Pollution</b>: "+airPollutionIndex+"</br>" +
-        "<b>Green roof is not essential</b></br>").openPopup();
+        "<b>Green roof is essential</b></br><a href='#' id='getReport'>Get Report</a>").openPopup();
 
     setProgress(100);
   }
