@@ -22,3 +22,8 @@
     height:inherit;
     padding-bottom:5px;
 }
+#map_container {
+    background: url("../img/Sentinel-1_radar_vision.jpg");
+    max-width: none;
+    padding:0 auto;
+}
