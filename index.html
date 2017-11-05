@@ -2,159 +2,143 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
           type="text/css">
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/index.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+            crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"
+            crossorigin="anonymous"></script>
+    <script src="js/logic.js"></script>
+
 </head>
 
 <body>
 <div>
-  <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark">
         <nav class="navbar navbar-light">
             <a class="navbar-brand" href="index.html">
                 <img src="img/eurbyia.png" height="30" class="d-inline-block align-top" alt="">
             </a>
         </nav>
-    <div class="container">
+        <div class="container">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                     data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a id="about-btn" class="nav-link text-white" href="#">What we do</a>
-          </li>
-          <li class="nav-item">
-                        <a id="footer-btn" class="nav-link text-white" href="#"><i class="fa d-inline fa-lg fa-envelope-o"></i> Contact
+            <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a id="about-btn" class="nav-link text-white" href="#">What we do</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="footer-btn" class="nav-link text-white" href="#"><i
+                                class="fa d-inline fa-lg fa-envelope-o"></i> Contact
                             Us</a>
-          </li>
-        </ul>
-      </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="text-center">
+        <div class="jumbotron jumbotronIntro jumbotron-fluid">
+            <div class="container grayscale">
+                <h1 class="display-1">Eurybia</h1>
+                <p class="lead">Eurybia selects and connects ideal customers with knowledge and expertise to create green
+                    living spaces on their properties and reap the financial benefits available to them</p>
+            </div>
+        </div>
     </div>
-  </nav>
-    <div class="jumbotron jumbotron-fluid">
-    <div class="container grayscale">
-            <h1 class="display-3">eurbyia</h1>
-            <p class="lead">Eurybia selects and connects ideal customers with knowledge and expertise to create green living spaces on their properties and reap the financial benefits available to them</p>
-            <hr class="my-4">
-            <p>If you want to know more please, clock the button below.</p>
-            </div>
-            </div>
 
 </div>
 <div class="py-5 text-center">
     <div id="about-nav" class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="pb-3 text-secondary">Utilising Sentinel-2 Data for&nbsp;</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="text-right col-md-6">
-          <div class="row my-5">
-            <div class="col-2 order-lg-2 col-2 text-center"><i class="d-block fa fa-columns fa-3x"></i></div>
-            <div class="col-10 text-lg-right text-left order-lg-1">
-              <h4 class="text-primary">Responsive design</h4>
-              <p>Based on fluid design principles.
-                <br>Works with screen resolution</p>
-            </div>
-          </div>
-          <div class="row my-5">
-                    <div class="col-2 order-lg-2 col-2 text-center"><i class="d-block fa fa-circle-thin fa-4x"></i>
+        <div class="row">
+            <div class="text-right col-md-6">
+                <div class="row my-5">
+                    <div class="col-2 order-lg-2 col-2 text-center"><i class="d-block fa fa-leaf fa-3x"></i></div>
+                    <div class="col-10 text-lg-right text-left order-lg-1">
+                        <h4 class="text-primary">Cleaner air</h4>
                     </div>
-            <div class="col-10 text-lg-right text-left order-lg-1">
-              <h4 class="text-primary">Customized settings</h4>
-              <p>Choose settings depending on the criteria you value the most</p>
+                </div>
+                <div class="row my-5">
+                    <div class="col-2 order-lg-2 col-2 text-center"><i class="d-block fa fa-bolt fa-4x"></i>
+                    </div>
+                    <div class="col-10 text-lg-right text-left order-lg-1">
+                        <h4 class="text-primary">Reduce energy costs</h4>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="row my-5">
-            <div class="col-2 order-lg-2 col-2 text-center"><i class="d-block fa  fa-comment-o fa-3x"></i></div>
-            <div class="col-10 text-lg-right text-left order-lg-1">
-              <h4 class="text-primary">Connect</h4>
-              <p>In-app chat panel 24/7 active.
-                <br>The support you need, right there.</p>
+            <div class="text-left col-md-6">
+                <div class="row my-5">
+                    <div class="col-2 text-center"><i class="d-block fa fa-umbrella fa-3x"></i></div>
+                    <div class="col-10">
+                        <h4 class="text-primary">Protect from flooding</h4>
+                    </div>
+                </div>
+                <div class="row my-5">
+                    <div class="col-2 text-center"><i class="d-block mx-auto fa  fa-pagelines fa-3x"></i></div>
+                    <div class="col-10">
+                        <h4 class="text-primary">Improve urban wildlife and ecology</h4>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="text-left col-md-6">
-          <div class="row my-5">
-            <div class="col-2 text-center"><i class="d-block fa fa-battery-empty fa-3x"></i></div>
-            <div class="col-10">
-              <h4 class="text-primary">Battery-friendly</h4>
-              <p>Non consuming background operation
-                <br>Pingendo enhance the battery duration.</p>
-            </div>
-          </div>
-          <div class="row my-5">
-            <div class="col-2 text-center"><i class="d-block mx-auto fa  fa-clone fa-3x"></i></div>
-            <div class="col-10">
-              <h4 class="text-primary">Multilayers</h4>
-              <p>Work simultaneously on different panels.
-                <br>Share the work with teammates.</p>
-            </div>
-          </div>
-          <div class="row my-5">
-            <div class="col-2 text-center"><i class="d-block fa  fa-heart-o fa-3x"></i></div>
-            <div class="col-10">
-              <h4 class="text-primary">Share the love</h4>
-              <p>Help us spreading the word.
-                <br>Tell your friends with just one-click</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 </div>
 <div class="py-5 text-center">
-  <div id="map_nav" class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="pb-3 text-secondary">Try Quick Scan Free of Charge</h1>
-      </div>
+    <div class="jumbotron">
+        <h1 class="display-3">Green rooftops are awesome.</h1>
+        <p class="lead">Thinforming, selecting and connecting suitable property owners with the right green roof
+            development firms.</p>
     </div>
-    <div class="container">
-      <p class="lead">We need to have some explanations here Eurybia selects and connects ideal customers with knowledge and expertise to create green living spaces on their properties and reap the financial benefits available to them</p>
-      <hr class="my-4">
-    </div>
-    <div class="container">
-      <a href="map.html" class="btn btn-success btn-lg active" role="button" target="_blank">Quick Scan</a>
-    </div>
-  </div>
 </div>
-  <div class="py-5 bg-dark text-white">
-    <div id="footer-nav" class="container">
-      <div class="row">
-        <div class="col-md-6 text-center align-self-center">
-                <p class="mb-5"><strong>EurybIA.</strong>
-            <br>Physicum
-            <br>Tartu, Estonia. </p>
-          <div class="my-3 row">
-            <div class="col-4">
-              <a href="https://www.facebook.com" target="_blank"><i class="fa fa-4x fa-facebook"></i></a>
+<div class="py-5 text-center">
+    <div id="map_nav" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="pb-3 text-secondary">Try Quick Scan Free of Charge</h1>
             </div>
-            <div class="col-4">
-              <a href="https://twitter.com" target="_blank"><i class="fa fa-4x fa-twitter"></i></a>
-            </div>
-            <div class="col-4">
-              <a href="https://www.instagram.com" target="_blank"><i class="fa fa-4x fa-instagram"></i></a>
-            </div>
-          </div>
         </div>
-        <div class="col-md-6 p-0">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2092.6367064091924!2d26.688656315654985!3d58.36579838133213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46eb371033923261%3A0xa2e364f739d2dd7!2sTartu+%C3%9Clikooli+f%C3%BC%C3%BCsika+instituut+(Physicum)!5e0!3m2!1sen!2see!4v1509879546249" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
+        <div class="container">
+            <p class="lead">We need to have some explanations here Eurybia selects and connects ideal customers with
+                knowledge and expertise to create green living spaces on their properties and reap the financial
+                benefits available to them</p>
+            <hr class="my-4">
+        </div>
+        <div class="container">
+            <a href="map.html" class="btn btn-success btn-lg active" role="button" c="_blank">Quick Scan</a>
+        </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-        crossorigin="anonymous"></script>
-<script src="js/bootstrap.js"
-        crossorigin="anonymous"></script>
-<script src="js/logic.js"></script>
+<div class="card" height="100vh">
+    <img class="card-img-top" src="img/sketchup.jpg" alt="Card image cap">
+</div>
+<div class="container">
+    <p><b>Technology experts</b><br> We remotely survey your property and draw up cost benefits plans, saving you the inconvenience of unnecessary pre-installation visits.<br>
+        We provide a seamless experience that is controlled by you. You pick from our specialised designs, you choose the materials and put you in control of the installation schedules</p>
+
+    <p><b>Grants</b><br>
+
+        We utilise the Government grants available to you, allowing you to reduce the costs further, where you are eligible.</p>
+
+    <p><b>Maintenance</b><br>
+
+        We organise regular maintenance visits to take the hard work out of keeping your rooftop garden in the best possible condition.</p>
+</div>
+
+
+<div class="bg-dark text-white">
+    <div id="footer-nav" class="container">
+            <a href="https://github.com/roofgardens/eurybia" class="btn btn-outline-dark btn-lg active" role="button" c="_blank">
+                <i class="d-block fa fa-github fa-3x"></i>
+            </a>
+    </div>
+    </div>
 </body>
 
 </html>

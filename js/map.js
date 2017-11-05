@@ -85,6 +85,7 @@ map.on('click', function(e) {
     callBacks=0;
     greenIndex ="calculating";
     leafAreaIndex="calculating";
+    setProgress(0);
      getAsyncMap(e.latlng.lat, e.latlng.lng, "ddl.copLandSseriesNdviGlobal.NDVI",(data) => ndviCallback(data,e));
      getAsyncMap(e.latlng.lat, e.latlng.lng, "ddl.copLandSseriesLaiGlobal.LAI", (data) => leafAreaCallback(data, e));
      getAsyncMap(e.latlng.lat, e.latlng.lng, "ddl.simS5seriesForAirQualityGlob.no2", (data) =>airPollutionCallback(data, e))
