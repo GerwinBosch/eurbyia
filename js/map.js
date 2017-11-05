@@ -36,7 +36,7 @@ function ndviCallback(data, e) {
   } else {
     greenIndex = "High";
   }
-  console.log('done green')
+  console.log('done green');
 calculate(e);
 }
 function leafAreaCallback(data, e){
@@ -50,7 +50,7 @@ function leafAreaCallback(data, e){
   } else {
     leafAreaIndex = "High";
   }
-  console.log('done leaf')
+  console.log('done leaf');
   calculate(e);
 }
 function airPollutionCallback(data, e){
@@ -63,19 +63,19 @@ function airPollutionCallback(data, e){
   } else {
     airPollutionIndex = "High";
   }
-  console.log('done air')
+  console.log('done air');
   calculate(e);
 }
 function calculate(e){
-  setProgress(25 *callBacks)
-  if(callBacks === 3) {
+  setProgress(25 *callBacks);
+  if(callBacks === 2) {
     L.marker([e.latlng.lat, e.latlng.lng]).addTo(map)
-    .bindPopup("<b>Green Index</b>: "+greenIndex+"</br>" +
-        "<b>Land-surface Temparature</b>: Low</br>" +
-        "<b>Flood Risk</b>: Low</br>" +
+    .bindPopup(
+        "<b>Land-surface Temperature</b>: Low</br>" +
+        "<b>Water Saving</b>: Absent</br>" +
         "<b>Leaf Area</b>: "+leafAreaIndex+"</br>" +
         "<b>Air Pollution</b>: "+airPollutionIndex+"</br>" +
-        "<b>Green roof is not essential</b></br>").openPopup();
+        "<b>Greenness roof</b>: Absent</br><a href='#' id='getReport'>Get Report</a>").openPopup();
 
     setProgress(100);
   }
@@ -85,7 +85,7 @@ map.on('click', function(e) {
     callBacks=0;
     greenIndex ="calculating";
     leafAreaIndex="calculating";
-     getAsyncMap(e.latlng.lat, e.latlng.lng, "ddl.copLandSseriesNdviGlobal.NDVI",(data) => ndviCallback(data,e));
+     //getAsyncMap(e.latlng.lat, e.latlng.lng, "ddl.copLandSseriesNdviGlobal.NDVI",(data) => ndviCallback(data,e));
      getAsyncMap(e.latlng.lat, e.latlng.lng, "ddl.copLandSseriesLaiGlobal.LAI", (data) => leafAreaCallback(data, e));
      getAsyncMap(e.latlng.lat, e.latlng.lng, "ddl.simS5seriesForAirQualityGlob.no2", (data) =>airPollutionCallback(data, e))
 

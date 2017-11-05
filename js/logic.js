@@ -15,3 +15,9 @@ $("#footer-btn").click(function() {
             scrollTop: $("#footer-nav").offset().top},
         2000);
 });
+
+$("#getReport").click(function() {
+    $('html,body').animate({
+            scrollTop: $("#map_nav").offset().top},
+        2000);
+});
