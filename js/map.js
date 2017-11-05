@@ -15,8 +15,14 @@ rc.getTile({
 
 map.on('click', function(e) {
 
-    var ndvi = getData("ddl.copLandSseriesNdviGlobal.NDVI");
+    setProgress(10);
+
+    var ndvi = getData(e.latlng.lat, e.latlng.lng, "ddl.copLandSseriesNdviGlobal.NDVI");
+    setProgress(40);
+
     var leafArea = getData(e.latlng.lat, e.latlng.lng, "ddl.copLandSseriesLaiGlobal.LAI");
+    setProgress(60);
+
     var airPollution = getData(e.latlng.lat, e.latlng.lng, "ddl.simS5seriesForAirQualityGlob.no2");
 
     var greenIndex;
@@ -57,9 +63,17 @@ map.on('click', function(e) {
             "<b>Air Pollution</b>: "+airPollutionIndex+"</br>" +
             "<b>Green roof is not essential</b></br>").openPopup();
 
+    setProgress(100);
+
 });
 
 function getData(lat, lng, layerID) {
     var info = rc.getFeatureInfo(new L.LatLng(lat, lng), { layer: layerID, info_format : 'text/json' });
     return info.features[0].featureInfo[0].value;
+}
+
+function setProgress(val) {
+    $('.progress-bar').attr('aria-valuenow', val);
+    $('.progress-bar').width(val+'%');
+    $('.progress-bar').text(val+'%');
 }
