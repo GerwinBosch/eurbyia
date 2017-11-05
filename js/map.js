@@ -13,58 +13,84 @@ rc.getTile({
     layer: 'ddl.copLandSseriesNdviGlobal.NDVI'
 });
 
+function getAsyncMap(lat,long,layer, callBack){
+  return new Promise(function(resolve) {
+    callBack(getData(lat,long,layer));
+    resolve(1);
+  })
+}
+var callBacks =0;
+var ndvi;
+var leafArea;
+var airPollution;
+var greenIndex ="calculating";
+var leafAreaIndex="calculating";
+var airPollutionIndex="calculating";
+function ndviCallback(data, e) {
+  ndvi = data;
+  callBacks++;
+  if (ndvi < 0) {
+    greenIndex = "Low";
+  } else if (ndvi < 0.5) {
+    greenIndex = "Medium";
+  } else {
+    greenIndex = "High";
+  }
+  console.log('done green')
+calculate(e);
+}
+function leafAreaCallback(data, e){
+  leafArea=data;
+  callBacks++;
+  // 0.273773998 Light
+  if (leafArea < 0.3) {
+    leafAreaIndex = "Low";
+  } else if (leafArea < 0.6) {
+    leafAreaIndex = "Medium";
+  } else {
+    leafAreaIndex = "High";
+  }
+  console.log('done leaf')
+  calculate(e);
+}
+function airPollutionCallback(data, e){
+  airPollution=data;
+  callBacks++;
+  if (airPollution > 3E-8) {
+    airPollutionIndex = "Low";
+  } else if (airPollution > 2E-8) {
+    airPollutionIndex = "Medium";
+  } else {
+    airPollutionIndex = "High";
+  }
+  console.log('done air')
+  calculate(e);
+}
+function calculate(e){
+  setProgress(25 *callBacks)
+  if(callBacks === 3) {
+    L.marker([e.latlng.lat, e.latlng.lng]).addTo(map)
+    .bindPopup("<b>Green Index</b>: "+greenIndex+"</br>" +
+        "<b>Land-surface Temparature</b>: Low</br>" +
+        "<b>Flood Risk</b>: Low</br>" +
+        "<b>Leaf Area</b>: "+leafAreaIndex+"</br>" +
+        "<b>Air Pollution</b>: "+airPollutionIndex+"</br>" +
+        "<b>Green roof is not essential</b></br>").openPopup();
+
+    setProgress(100);
+  }
+}
+
 map.on('click', function(e) {
-
-    setProgress(10);
-
-    var ndvi = getData(e.latlng.lat, e.latlng.lng, "ddl.copLandSseriesNdviGlobal.NDVI");
-    setProgress(40);
-
-    var leafArea = getData(e.latlng.lat, e.latlng.lng, "ddl.copLandSseriesLaiGlobal.LAI");
-    setProgress(60);
-
-    var airPollution = getData(e.latlng.lat, e.latlng.lng, "ddl.simS5seriesForAirQualityGlob.no2");
-
-    var greenIndex;
-    if (ndvi < 0) {
-        greenIndex = "Low";
-    } else if (ndvi < 0.5) {
-        greenIndex = "Medium";
-    } else {
-        greenIndex = "High";
-    }
-
-    // 0.273773998 Light
-    var leafAreaIndex;
-    if (leafArea < 0.3) {
-        leafAreaIndex = "Low";
-    } else if (leafArea < 0.6) {
-        leafAreaIndex = "Medium";
-    } else {
-        leafAreaIndex = "High";
-    }
+    callBacks=0;
+    greenIndex ="calculating";
+    leafAreaIndex="calculating";
+     getAsyncMap(e.latlng.lat, e.latlng.lng, "ddl.copLandSseriesNdviGlobal.NDVI",(data) => ndviCallback(data,e));
+     getAsyncMap(e.latlng.lat, e.latlng.lng, "ddl.copLandSseriesLaiGlobal.LAI", (data) => leafAreaCallback(data, e));
+     getAsyncMap(e.latlng.lat, e.latlng.lng, "ddl.simS5seriesForAirQualityGlob.no2", (data) =>airPollutionCallback(data, e))
 
     // 1.7199168E-8 Dark
     // 3.9698367E-8 Light
-    var airPollutionIndex;
-    if (airPollution > 3E-8) {
-        airPollutionIndex = "Low";
-    } else if (airPollution > 2E-8) {
-        airPollutionIndex = "Medium";
-    } else {
-        airPollutionIndex = "High";
-    }
-
-    L.marker([e.latlng.lat, e.latlng.lng]).addTo(map)
-        .bindPopup("<b>Green Index</b>: "+greenIndex+"</br>" +
-            "<b>Land-surface Temparature</b>: Low</br>" +
-            "<b>Flood Risk</b>: Low</br>" +
-            "<b>Leaf Area</b>: "+leafAreaIndex+"</br>" +
-            "<b>Air Pollution</b>: "+airPollutionIndex+"</br>" +
-            "<b>Green roof is not essential</b></br>").openPopup();
-
-    setProgress(100);
-
 });
 
 function getData(lat, lng, layerID) {
