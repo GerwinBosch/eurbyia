@@ -60,11 +60,22 @@
             </div>
         </div>
         <div class="container">
-            <p class="lead">Generate a full report of benefits</p>
+            <p class="lead">Generate a full report</p>
             <hr class="my-4">
         </div>
-        <div class="container">
-            <a href="img/Report1.png" class="btn btn-success btn-lg active" role="button" target="_blank">Download</a>
+        <div class="container col-6">
+            <form action="img/Report1.png">
+                <div class="form-group">
+                    <input class="form-control" required type="text" name="name" placeholder="Owner Name">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" required type="text" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" required type="text" name="address" placeholder="Address">
+                </div>
+                <input type="submit" class="btn btn-success btn-lg" value="Download">
+            </form>
         </div>
     </div>
 </div>
